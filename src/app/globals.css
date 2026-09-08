@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  /* Drafting-desk palette: ink navy canvas, hairline lines, amber action. */
+  --color-ink: #0a0d13;
+  --color-panel: #10141c;
+  --color-raise: #151a24;
+  --color-line: #222a37;
+  --color-line-strong: #2e3949;
+  --color-paper: #e8ecf3;
+  --color-muted: #8b95a7;
+  --color-faint: #5c6678;
+  --color-amber: #e8a33d;
+  --color-amber-dim: #8a5f22;
+  --color-good: #4cc38a;
+  --color-bad: #e5484d;
+  --color-info: #5b9bd5;
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-ink);
+  /* Blueprint grid: faint major/minor drafting lines. */
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-line) 28%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 28%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--color-paper);
+}
+
+/* Micro-label used across the app: uppercase mono, tracked out. */
+.microlabel {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Focus ring that survives the dark palette. */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+}
+
+::placeholder {
+  color: var(--color-faint);
+}
+
+/* Thin scrollbars inside editor panels. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
